@@ -1,12 +1,230 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Hello World!</title>
-    <link rel="stylesheet" href="index.css" />
-  </head>
-  <body>
-    <h1>💖 Hello World!</h1>
-    <p>Welcome to your Electron application.</p>
-  </body>
-</html>
+<html lang="en">
+
+<head>
+    <!-- Title -->
+    <title>Hemodialysis monitoring</title>
+
+    <!-- Metadata -->
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5" name="description">
+    <meta content="AdminKit" name="author">
+    <meta content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web"
+          name="keywords">
+
+    <!-- assets -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="app/assets/icon-48x48.png" rel="shortcut icon"/>
+    <link href="https://demo-basic.adminkit.io/" rel="canonical"/>
+    <link href="app/css/app.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- JavaScript -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script
+            crossorigin="anonymous"
+            integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA="
+            src="https://code.jquery.com/jquery-3.6.2.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.6.1/d3.min.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <div class="main">
+        <main class="content">
+            <div class="container-fluid p-0">
+                <!-- Title of the Page-->
+                <br>
+                <h1 class="h3 mb-3"><strong>Hemodialysis</strong> Monitoring</h1>
+
+                <!-- The First Row of data -->
+                <div class="row">
+                    <div class="col-xl-6 col-xxl-5 d-flex">
+                        <div class="w-100">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col mt-0">
+                                                    <h5 class="card-title">Temperature</h5>
+                                                </div>
+
+                                                <div class="col-auto">
+                                                    <div class="stat text-primary">
+                                                        <i class="align-middle" data-feather="truck"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h1 class="mt-1 mb-3" id="temp">37 C</h1>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col mt-0">
+                                                    <h5 class="card-title">PH</h5>
+                                                </div>
+
+                                                <div class="col-auto">
+                                                    <div class="stat text-primary">
+                                                        <i class="align-middle" data-feather="users"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h1 class="mt-1 mb-3" id="ph">5.5</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col mt-0">
+                                                    <h5 class="card-title">Flow rate</h5>
+                                                </div>
+
+                                                <div class="col-auto">
+                                                    <div class="stat text-primary">
+                                                        <i class="align-middle" data-feather="dollar-sign"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h1 class="mt-1 mb-3">20 L/s</h1>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col mt-0">
+                                                    <h5 class="card-title">Pump Speed</h5>
+                                                </div>
+
+                                                <div class="col-auto">
+                                                    <div class="stat text-primary">
+                                                        <i class="align-middle" data-feather="shopping-cart"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h1 class="mt-1 mb-3">2 m/s</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-xxl-7">
+                        <div class="card flex-fill w-100">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Recent Movement</h5>
+                                <div id="chartjs-dashboard-line"></div>
+                            </div>
+                            <div class="card-body py-3">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The Second Row of data -->
+                <div class="row">
+                    <div class="col-xl-6 col-xxl-5 d-flex">
+                        <div class="w-100">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col mt-0">
+                                                    <h5 class="card-title">Temperature</h5>
+                                                </div>
+
+                                                <div class="col-auto">
+                                                    <div class="stat text-primary">
+                                                        <i class="align-middle" data-feather="truck"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h1 class="mt-1 mb-3">37 C</h1>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col mt-0">
+                                                    <h5 class="card-title">PH</h5>
+                                                </div>
+
+                                                <div class="col-auto">
+                                                    <div class="stat text-primary">
+                                                        <i class="align-middle" data-feather="users"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h1 class="mt-1 mb-3">5.5</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col mt-0">
+                                                    <h5 class="card-title">Flow rate</h5>
+                                                </div>
+
+                                                <div class="col-auto">
+                                                    <div class="stat text-primary">
+                                                        <i class="align-middle" data-feather="dollar-sign"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h1 class="mt-1 mb-3">20 L/s</h1>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col mt-0">
+                                                    <h5 class="card-title">Pump Speed</h5>
+                                                </div>
+
+                                                <div class="col-auto">
+                                                    <div class="stat text-primary">
+                                                        <i class="align-middle" data-feather="shopping-cart"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h1 class="mt-1 mb-3">2 m/s</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-xxl-7">
+                        <div class="card flex-fill w-100">
+                            <div class="card-header">
+
+                                <h5 class="card-title mb-0">Recent Movement</h5>
+                            </div>
+                            <div class="card-body py-3">
+                                <div class="chart chart-sm">
+                                    <canvas id="chartjs-dashboard-line1"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<!-- JavaScript (Application Logic) -->
+<script src="app/js/app.js"></script>
+
+</body>
+
