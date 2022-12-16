@@ -36,12 +36,19 @@
         <main class="content">
             <div class="container-fluid p-0">
                 <!-- Title of the Page-->
-                <br>
-                <h1 class="h3 mb-3"><strong>Hemodialysis</strong> Monitoring</h1>
+                <h1 class="h3 mb-2"><strong>Hemodialysis</strong> Monitoring</h1>
 
                 <!-- The First Row of data -->
                 <div class="row">
-                    <div class="col-xl-6 col-xxl-5 d-flex">
+                    <div class="col-xl-12 col-xxl-12">
+                        <div class="card flex-fill w-100">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Recent Movement</h5>
+                            </div>
+                            <div id="chartjs-dashboard-line"></div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-xxl-6 d-flex">
                         <div class="w-100">
                             <div class="row">
                                 <div class="col-sm-6">
@@ -112,25 +119,90 @@
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-xxl-7">
-                        <div class="card flex-fill w-100">
-                            <div class="card-header">
-                                <h5 class="card-title mb-0">Recent Movement</h5>
-                                <div id="chartjs-dashboard-line"></div>
-                            </div>
-                            <div class="card-body py-3">
+                    <div class="col-xl-6 col-xxl-6 d-flex">
+                        <div class="w-100">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col mt-0">
+                                                    <h5 class="card-title">Temperature</h5>
+                                                </div>
+
+                                                <div class="col-auto">
+                                                    <div class="stat text-primary">
+                                                        <i class="align-middle" data-feather="truck"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h1 class="mt-1 mb-3" id="temp1">37 C</h1>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col mt-0">
+                                                    <h5 class="card-title">PH</h5>
+                                                </div>
+
+                                                <div class="col-auto">
+                                                    <div class="stat text-primary">
+                                                        <i class="align-middle" data-feather="users"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h1 class="mt-1 mb-3" id="ph1">5.5</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col mt-0">
+                                                    <h5 class="card-title">Flow rate</h5>
+                                                </div>
+
+                                                <div class="col-auto">
+                                                    <div class="stat text-primary">
+                                                        <i class="align-middle" data-feather="dollar-sign"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h1 class="mt-1 mb-3" id="flowrate1">20 L/s</h1>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col mt-0">
+                                                    <h5 class="card-title">Pump Speed</h5>
+                                                </div>
+
+                                                <div class="col-auto">
+                                                    <div class="stat text-primary">
+                                                        <i class="align-middle" data-feather="shopping-cart"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h1 class="mt-1 mb-3" id="speed1">2 m/s</h1>
+                                        </div>
+                                    </div>
+                                </div>
 
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </main>
     </div>
+</div>
 </div>
 
 <!-- JavaScript (Application Logic) -->

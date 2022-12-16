@@ -7,15 +7,23 @@ const cors = require('cors')
 const app = express()
 const portNum = 9000
 
+
 // app.use('/', express.static('public'));
 //  CORS Security
 app.use(cors())
 
-let arduinoData = 0;
+let temperatureData = 0;
+let ultrasoundData = 0;
+let counter = 0;
 
 // -----------------  Server End Points ----------------- //
 app.post('/', (req, res) => {
-    res.send({"update": arduinoData})
+    res.send({
+        body: {
+            "temperature": temperatureData,
+            "distance" : ultrasoundData
+        }
+    })
 });
 
 
@@ -41,6 +49,12 @@ port.on('open', function () {
 
 // Switches the port into "flowing mode"
 parser.on('data', function (serialPortData) {
-    arduinoData = serialPortData
-    console.log(serialPortData)
+    if (counter === 0){
+        temperatureData = serialPortData
+        counter++
+    }
+    else if(counter === 1){
+        ultrasoundData = serialPortData
+        counter = 0
+    }
 })
