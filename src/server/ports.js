@@ -15,7 +15,7 @@ let arduinoData = 0;
 
 // -----------------  Server End Points ----------------- //
 app.post('/', (req, res) => {
-    res.send({"data": arduinoData})
+    res.send({"update": arduinoData})
 });
 
 

@@ -18,7 +18,7 @@
     <link href="https://fonts.gstatic.com" rel="preconnect">
     <link href="app/assets/icon-48x48.png" rel="shortcut icon"/>
     <link href="https://demo-basic.adminkit.io/" rel="canonical"/>
-    <link href="app/css/app.css" rel="stylesheet">
+    <link href="./app/css/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
     <!-- JavaScript -->
@@ -92,7 +92,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <h1 class="mt-1 mb-3">20 L/s</h1>
+                                            <h1 class="mt-1 mb-3" id="flowrate">20 L/s</h1>
                                         </div>
                                     </div>
                                     <div class="card">
@@ -108,7 +108,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <h1 class="mt-1 mb-3">2 m/s</h1>
+                                            <h1 class="mt-1 mb-3" id="speed">2 m/s</h1>
                                         </div>
                                     </div>
                                 </div>
@@ -128,96 +128,6 @@
                     </div>
                 </div>
 
-                <!-- The Second Row of data -->
-                <div class="row">
-                    <div class="col-xl-6 col-xxl-5 d-flex">
-                        <div class="w-100">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col mt-0">
-                                                    <h5 class="card-title">Temperature</h5>
-                                                </div>
-
-                                                <div class="col-auto">
-                                                    <div class="stat text-primary">
-                                                        <i class="align-middle" data-feather="truck"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <h1 class="mt-1 mb-3">37 C</h1>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col mt-0">
-                                                    <h5 class="card-title">PH</h5>
-                                                </div>
-
-                                                <div class="col-auto">
-                                                    <div class="stat text-primary">
-                                                        <i class="align-middle" data-feather="users"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <h1 class="mt-1 mb-3">5.5</h1>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col mt-0">
-                                                    <h5 class="card-title">Flow rate</h5>
-                                                </div>
-
-                                                <div class="col-auto">
-                                                    <div class="stat text-primary">
-                                                        <i class="align-middle" data-feather="dollar-sign"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <h1 class="mt-1 mb-3">20 L/s</h1>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col mt-0">
-                                                    <h5 class="card-title">Pump Speed</h5>
-                                                </div>
-
-                                                <div class="col-auto">
-                                                    <div class="stat text-primary">
-                                                        <i class="align-middle" data-feather="shopping-cart"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <h1 class="mt-1 mb-3">2 m/s</h1>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-xxl-7">
-                        <div class="card flex-fill w-100">
-                            <div class="card-header">
-
-                                <h5 class="card-title mb-0">Recent Movement</h5>
-                            </div>
-                            <div class="card-body py-3">
-                                <div class="chart chart-sm">
-                                    <canvas id="chartjs-dashboard-line1"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </main>
     </div>
@@ -225,6 +135,6 @@
 
 <!-- JavaScript (Application Logic) -->
 <script src="app/js/app.js"></script>
-
+<script src="app/js/driver.js"></script>
 </body>
 
