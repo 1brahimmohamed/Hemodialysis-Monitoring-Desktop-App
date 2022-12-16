@@ -14,7 +14,7 @@ app.use(cors())
 let arduinoData = 0;
 
 // -----------------  Server End Points ----------------- //
-app.get('/', (req, res) => {
+app.post('/', (req, res) => {
     res.send({"data": arduinoData})
 });
 
