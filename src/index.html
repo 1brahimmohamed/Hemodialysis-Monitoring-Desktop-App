@@ -21,6 +21,7 @@
     <link href="./app/css/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
+
     <!-- JavaScript -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script
@@ -29,6 +30,10 @@
             src="https://code.jquery.com/jquery-3.6.2.min.js">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.6.1/d3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+
 </head>
 <body>
 <div class="wrapper">
@@ -43,7 +48,7 @@
                     <div class="col-xl-12 col-xxl-12">
                         <div class="card flex-fill w-100">
                             <div class="card-header">
-                                <h5 class="card-title mb-0">Recent Movement</h5>
+                                <h5 class="card-title mb-0">Fluid Level</h5>
                             </div>
                             <div id="chartjs-dashboard-line"></div>
                         </div>
@@ -52,7 +57,7 @@
                         <div class="w-100">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <div class="card">
+                                    <div class="card" id='tempCard'>
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col mt-0">
@@ -61,9 +66,10 @@
 
                                                 <div class="col-auto">
                                                     <div class="stat text-primary">
-                                                        <i class="align-middle" data-feather="truck"></i>
+                                                        <i class="fa-thin fa-temperature-three-quarters align-middle"></i>
                                                     </div>
                                                 </div>
+                                                <i class="fa-thin fa-temperature-three-quarters"></i>
                                             </div>
                                             <h1 class="mt-1 mb-3" id="temp">37 C</h1>
                                         </div>
@@ -81,7 +87,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <h1 class="mt-1 mb-3" id="ph">5.5</h1>
+                                            <h1 class="mt-1 mb-3" id="ph">7</h1>
                                         </div>
                                     </div>
                                 </div>
@@ -90,7 +96,7 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col mt-0">
-                                                    <h5 class="card-title">Flow rate</h5>
+                                                    <h5 class="card-title" >Blood Flow rate</h5>
                                                 </div>
 
                                                 <div class="col-auto">
@@ -99,14 +105,14 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <h1 class="mt-1 mb-3" id="flowrate">20 L/s</h1>
+                                            <h1 class="mt-1 mb-3" id="flow-rate">200 mL/min</h1>
                                         </div>
                                     </div>
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col mt-0">
-                                                    <h5 class="card-title">Pump Speed</h5>
+                                                    <h5 class="card-title">Dialysate Flowrate</h5>
                                                 </div>
 
                                                 <div class="col-auto">
@@ -115,9 +121,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <h1 class="mt-1 mb-3" id="speed">2 m/s</h1>
+                                            <h1 class="mt-1 mb-3" id="dFlowRate">500 mL/min</h1>
                                         </div>
                                     </div>
+
                                 </div>
 
                             </div>
@@ -127,61 +134,11 @@
                         <div class="w-100">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <div class="card">
+                                    <div class="card" id="levelCard">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col mt-0">
-                                                    <h5 class="card-title">Temperature</h5>
-                                                </div>
-
-                                                <div class="col-auto">
-                                                    <div class="stat text-primary">
-                                                        <i class="align-middle" data-feather="truck"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <h1 class="mt-1 mb-3" id="temp1">37 C</h1>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col mt-0">
-                                                    <h5 class="card-title">PH</h5>
-                                                </div>
-
-                                                <div class="col-auto">
-                                                    <div class="stat text-primary">
-                                                        <i class="align-middle" data-feather="users"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <h1 class="mt-1 mb-3" id="ph1">5.5</h1>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col mt-0">
-                                                    <h5 class="card-title">Flow rate</h5>
-                                                </div>
-
-                                                <div class="col-auto">
-                                                    <div class="stat text-primary">
-                                                        <i class="align-middle" data-feather="dollar-sign"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <h1 class="mt-1 mb-3" id="flowrate1">20 L/s</h1>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col mt-0">
-                                                    <h5 class="card-title">Pump Speed</h5>
+                                                    <h5 class="card-title" id="levelCardTitle">Dialysate Level</h5>
                                                 </div>
 
                                                 <div class="col-auto">
@@ -190,9 +147,60 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <h1 class="mt-1 mb-3" id="speed1">2 m/s</h1>
+                                            <h1 class="mt-1 mb-3" id="level">2 cm</h1>
                                         </div>
                                     </div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col mt-0">
+                                                    <h5 class="card-title">HCO3 Concentration</h5>
+                                                </div>
+
+                                                <div class="col-auto">
+                                                    <div class="stat text-primary">
+                                                        <i class="align-middle" data-feather="users"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h1 class="mt-1 mb-3" id="hco3-conc">35 mEq/L</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col mt-0">
+                                                    <h5 class="card-title">Pressure</h5>
+                                                </div>
+
+                                                <div class="col-auto">
+                                                    <div class="stat text-primary">
+                                                        <i class="align-middle" data-feather="truck"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h1 class="mt-1 mb-3" id="pressure">300 mmHg </h1>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col mt-0">
+                                                    <h5 class="card-title">Leakage</h5>
+                                                </div>
+
+                                                <div class="col-auto">
+                                                    <div class="stat text-primary">
+                                                        <i class="align-middle" data-feather="dollar-sign"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h1 class="mt-1 mb-3" id="leak">FALSE</h1>
+                                        </div>
+                                    </div>
+
                                 </div>
 
                             </div>
@@ -203,10 +211,8 @@
         </main>
     </div>
 </div>
-</div>
 
 <!-- JavaScript (Application Logic) -->
-<script src="app/js/app.js"></script>
 <script src="app/js/driver.js"></script>
 </body>
 

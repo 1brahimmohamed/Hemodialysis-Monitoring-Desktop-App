@@ -9,14 +9,15 @@ const portNum = 9000
 
 
 // app.use('/', express.static('public'));
-//  CORS Security
+// CORS Security
 app.use(cors())
 
 let temperatureData = 0;
 let ultrasoundData = 0;
 let counter = 0;
 
-// -----------------  Server End Points ----------------- //
+// --------------------  Server End Points -------------------- //
+
 app.post('/', (req, res) => {
     res.send({
         body: {
@@ -36,7 +37,7 @@ app.listen(portNum, () => {
 
 // Create a port
 const port = new SerialPort({
-    path: 'COM9',
+    path: 'COM5',
     baudRate: 9600,
 })
 
@@ -49,12 +50,16 @@ port.on('open', function () {
 
 // Switches the port into "flowing mode"
 parser.on('data', function (serialPortData) {
+
+    // toggle input capture by using counter var
     if (counter === 0){
-        temperatureData = serialPortData
+        ultrasoundData = serialPortData
         counter++
     }
     else if(counter === 1){
-        ultrasoundData = serialPortData
+        temperatureData = serialPortData
         counter = 0
     }
+
+    console.log(serialPortData)
 })
